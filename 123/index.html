@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>计算器</title>
+    <style type="text/css">
+    	.bd{
+    		width:50px;
+    	    height:50px;
+    		border: 0px solid red;
+    		border-radius: 50%;
+    		background-color: royalblue;
+    		font-size: 30px;
+    	}
+    	</style>
+    <script type="text/css">
+   		document.addEventListener('plusready', function(){
+   			//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+   			
+   		});
+   		
+    </script>
+</head>
+<body style="background-color: burlywood;">
+	<div id="data" style="text-align: right; height: 50px; width: 20px; font-size: 30px;">0</div>
+		<hr />
+		<div>
+			<button class="bd" onclick="bd('AC');">AC</button>
+			<button class="bd" onclick="bd('+/-');">+/-</button>
+			<button class="bd" onclick="bd('%');">%</button>
+			<button class="bd" onclick="bd('/');">/</button>
+		</div>
+		<div style="margin-top: 10px;">
+			<button class="bd" onclick="bd('7');">7</button>
+			<button class="bd" onclick="bd('8');">8</button>
+			<button class="bd" onclick="bd('9');">9</button>
+			<button class="bd" onclick="bd('*');">*</button>
+		</div>
+		<div style="margin-top: 10px;">
+			<button class="bd" onclick="bd('4');">4</button>
+			<button class="bd" onclick="bd('5');">5</button>
+			<button class="bd" onclick="bd('6');">6</button>
+			<button class="bd" onclick="bd('-');">-</button>
+		</div>
+		<div style="margin-top: 10px;">
+			<button class="bd" onclick="bd('1');">1</button>
+			<button class="bd" onclick="bd('2');">2</button>
+			<button class="bd" onclick="bd('3');">3</button>
+			<button class="bd" onclick="bd('+');">+</button>
+		</div>
+		<div style="margin-top: 10px;">
+			<button class="bd" onclick="bd('0');">0</button>
+			<button class="bd" onclick="bd('.');">.</button>
+			<button class="bd" onclick="bd('log');">log</button>
+			<button class="bd" onclick="bd('=');">=</button>
+		</div>
+	<script type="text/javascript">
+		var result = "0";
+		var jsqr="";
+		function bd(data){
+			if("="==data){
+				jsqr=eval(result);
+				result=jsqr;
+				document.getElementById("data").innerHTML=result;
+				return;
+			}
+			if("AC"==data){
+				result="0";
+				document.getElementById("data").innerHTML=result;
+				return;
+			}
+			if("0"==result){
+				result=data;
+			}
+			else {
+				result+=data;
+			}
+			document.getElementById("data").innerHTML=result;
+		}
+	</script>
+</body>
+</html>
